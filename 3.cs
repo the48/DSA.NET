@@ -6,6 +6,8 @@ class Solution {
         int l = object;
 
         for(int r = 0; r < s.Length; r++) {
+            
+            // hashset check before insert ?
         }
     }
 }
