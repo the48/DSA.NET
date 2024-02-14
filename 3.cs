@@ -1,13 +1,21 @@
-// LeetCode 3
+// LeetCode 3 : sliding window
 
-class Solution {
-    public int solve(string s) {
-        HashSet<string> hash = new HashSet<string>();
-        int l = object;
+public class Solution {
+    public int LengthOfLongestSubstring(string s) {
 
-        for(int r = 0; r < s.Length; r++) {
-            
-            // hashset check before insert ?
+        var hashset = new HashSet<char>();
+        int leftPointer = 0;
+        int maxLength = 0;
+
+        for (int rightPointer = 0; rightPointer < s.Length; rightPointer++) {
+            while (hashset.Contains(s[rightPointer])) {
+                hashset.Remove(s[leftPointer]);
+                leftPointer++;
+            }
+
+            hashset.Add(s[rightPointer]);
+            maxLength = Math.Max(maxLength, rightPointer - leftPointer + 1);
         }
-    }
+
+        return maxLength;
 }
